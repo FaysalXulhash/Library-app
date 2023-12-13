@@ -1,0 +1,22 @@
+{% extends "book/base.html" %}
+{% block content %}
+<div class="mt-5 card-columns text-center">
+    {% for book in books %}
+        <div class="card text-center mb-2" style="width: 18rem;">
+            <img class="card-img-top" src="{{ book.picture.url }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ book.name }}</h5>
+                <p class="card-text">{{ book.describe }}</p>
+                <div class="card-footer bg-transparent border-dark">
+                <p class="card-title">{{book.author}}</p>
+                <center>
+                <a href="{% url 'update-book' book.id %}" class="btn btn-warning" id = '{{book.id}}'>
+                    Edit</a>
+                <a href="{% url 'delete-book' book.id %}" class="btn btn-danger" id = '{{book.id}}'>Delete</a>
+                </center>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Library Project</title>
+    <link rel="stylesheet" href="{% static 'book/css/bootstrap.css' %}"/>
+    <!--
+    {% block corecss%}
+    <link rel="stylesheet" href="{% static 'core/css/core.css' %}" />
+    {% endblock corecss %}
+    -->
+  </head>
+  <body>
+    <div class="container mt-2">
+        <nav class="navbar navbar-light" style="background-color:#266691;">
+            <a href="{% url 'view-book' %}" class="mx-2 btn btn-success " >Home</a>
+            <a class="mx-auto btn btn-info" href="{% url 'add-book' %}">Add Book</a>
+            <a href="/admin/" class = "mx-2 btn btn-success">Admin</a>
+        </nav>
+        {% block content %}
+        {% endblock content %}
+    </div>
+    <!-- javascript -->
+    <script src="{% static 'book/js/bootstrap.js' %}"></script>
+    <script src="{% static 'book/js/jquery.js' %}"></script>
+    <script src="{% static 'book/js/popper.js' %}"></script>
+  </body>
+</html>
